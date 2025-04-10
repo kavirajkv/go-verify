@@ -2,14 +2,25 @@ package main
 
 import (
 	"fmt"
-	"github.com/gofiber/fiber/v2"
 	"go-verify/routes"
+	"github.com/gofiber/fiber/v2"
+	"github.com/joho/godotenv"
 )
 
+func loadenv() {
+	err:=godotenv.Load(".env")
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	} else {
+		fmt.Println("Loaded .env file")
+	}
+}
+	
 func main() {	
+	loadenv()
+
 	app:=fiber.New()
 
-	// Setup routes
 	routes.Routes(app)
 	
 	
