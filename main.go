@@ -22,8 +22,7 @@ func main() {
 	app:=fiber.New()
 
 	routes.Routes(app)
-	
-	
+
 	fmt.Println("Starting server on :8000")
 	app.Listen(":8000")
 
